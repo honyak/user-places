@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_USER": "root",
+        "DB_PASSWORD": "root",
+        "DB_NAME": "userPlaces",
+        "GOOGLE_API_KEY": "dotdot",
+        "JWT_KEY": "finn_is_a_private_key"
+    }
+}
