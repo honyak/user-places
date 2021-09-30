@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
   }
 
   try {
-    const token = req.headers.authorization.split(" ")[1]; // Header wil read Authorization: "Bearer TOKEN" Here we use split to access the "TOKEN" string within the header.
+    const token = req.headers.authorization.split(" ")[1]; // Header will read Authorization: "Bearer TOKEN" Here we use split to access the "TOKEN" string within the header.
     if (!token) {
       throw new Error("Authentication failed.");
     }
