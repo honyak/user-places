@@ -32,6 +32,7 @@ const signup = async (req, res, next) => {
   try {
     existingUser = await User.findOne({ email });
   } catch (err) {
+    console.log(err)
     const error = new HttpError(
       "Could not sign you up with provided information.",
       500

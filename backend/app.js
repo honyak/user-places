@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 // ASSETS / IMAGES
 // express.static is an included express function that serves the static file INSTEAD of executing it.
 // This code declares the route at the url path /uploads/images to serve the file rather than execute, at the location of the uploads/images path.
-app.use('/uploads/images', express.static(path.join('uploads','images')));
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
 // SERVE UP SPA REACT APP
 // This app.use catches all css and js files needed by our frontend app, but does not serve index.html when a URL path is specified (React Router doesn't work just from this, we need to serve index.html in that case)
@@ -43,7 +43,7 @@ app.use("/api/users", usersRoutes);
 
 
 // Any request that reaches my backend that is not handled by the api routes above... will be handled by serving index.html in public folder.
-app.use((req,res,next) => {
+app.use((req, res, next) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
@@ -76,11 +76,9 @@ app.use((req,res,next) => {
 //     .json({ message: err.message || "An uknown error occurred." });
 // });
 
-mongoose
-  .connect(mongo_url)
-  .then(() => {
-    app.listen(process.env.PORT || 5000);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+
+mongoose.connect(mongo_url).then(() => {
+  console.log("Connected to database!");
+}).catch((err) => {
+  console.error("Connection error:", err);
+});
